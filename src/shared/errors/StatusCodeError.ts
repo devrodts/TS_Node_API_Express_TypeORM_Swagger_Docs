@@ -6,8 +6,10 @@ export enum StatusCodeErrorEnum{
     INTERNAL_SERVER_ERROR = 500,
 }
 export class StatusCodeError extends Error {
-    constructor(message: string, public statusCode: StatusCodeErrorEnum) {
+    constructor(message: string, public statusCodeError?: StatusCodeErrorEnum) {
         super(message)
-        this.statusCode = statusCode
+        this.message = message
+        this.statusCodeError = statusCodeError ?? StatusCodeErrorEnum.INTERNAL_SERVER_ERROR
     }
+
 }
